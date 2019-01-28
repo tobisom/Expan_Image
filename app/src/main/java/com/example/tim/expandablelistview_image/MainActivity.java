@@ -81,30 +81,33 @@ public class MainActivity extends AppCompatActivity
     public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
         Country c = adapter.getChild(groupPosition, childPosition);
         //Toast.makeText(MainActivity.this, "Your clicked " + c.getName() + " of Group " + adapter.getGroup(groupPosition).getName(), Toast.LENGTH_SHORT).show();
-        if(groupPosition == 1 && childPosition == 1){
-            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+        if(groupPosition == 0 && childPosition == 0){
+            Intent intent = new Intent(MainActivity.this, TabbedActivity.class);
 startActivity(intent);
         }
-
+        else if (groupPosition == 1 && childPosition == 1){
+            Intent intent = new Intent(MainActivity.this, TabbedActivity.class);
+            startActivity(intent);
+        }
 
         return false;
     }
 
     @Override
     public boolean onGroupClick(ExpandableListView expandableListView, View view, int groupPosition, long l) {
-        Toast.makeText(MainActivity.this, "Your clicked Group " + adapter.getGroup(groupPosition).getName(), Toast.LENGTH_SHORT).show();
+
         return false;
     }
 
     @Override
     public void onGroupExpand(int groupPosition) {
-        Toast.makeText(MainActivity.this, "Group Expanded is : " + adapter.getGroup(groupPosition).getName(), Toast.LENGTH_SHORT).show();
+
 
     }
 
     @Override
     public void onGroupCollapse(int groupPosition) {
-        Toast.makeText(MainActivity.this, "Group collapsed is : " + adapter.getGroup(groupPosition).getName(), Toast.LENGTH_SHORT).show();
+
 
     }
 }
